@@ -114,6 +114,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#auto-tagging" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -1136,6 +1141,8 @@ GitHub sponsorship</a>
       
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
+      
+        
       
       
       <a href="./" class="md-nav__link md-nav__link--active">
@@ -2733,6 +2740,8 @@ GitHub sponsorship</a>
   
   
   
+    
+  
   
 </nav>
                   </div>
@@ -2764,9 +2773,21 @@ GitHub sponsorship</a>
   
 
 
-  <h1>Auto tagging</h1>
-
-
+<h1 id="auto-tagging">Auto Tagging<a class="headerlink" href="#auto-tagging" title="Permanent link">&para;</a></h1>
+<p>When media filepaths or filenames contain a Performer, Studio, or Tag name, it is assigned those Performers, Studios, and Tags. It will <strong>only</strong> tag based on Performer, Studio, and Tag names that exist in your database.</p>
+<p>When the Performer/Studio/Tag name has multiple words, the search will include paths/filenames where the Performer/Studio/Tag name is separated with <code>.</code>, <code>-</code>, <code>_</code>, and whitespace characters.</p>
+<p>For example, auto tagging for performer <code>Jane Doe</code> will match the following filenames:</p>
+<ul>
+<li><code>Jane.Doe.1.mp4</code></li>
+<li><code>Jane_Doe.2.mp4</code></li>
+<li><code>Jane-Doe.3.mp4</code></li>
+<li><code>Jane Doe.4.mp4</code></li>
+</ul>
+<p>Matching is case insensitive, and should only match exact wording within word boundaries. For example, the tag <code>Jane Doe</code> will not match <code>Maryjane-Doe</code> or <code>Jane-Doen</code>, but will match <code>Mary-Jane-Doe</code>, <code>Jane-Doe_n</code>, and <code>[OF]jane doe</code>.</p>
+<p>Auto tagging for specific Performers, Studios, and Tags can be performed from the individual Performer/Studio/Tag page.</p>
+<blockquote>
+<p><strong>Note:</strong> Performer autotagging does not currently match on performer aliases.</p>
+</blockquote>
 
 
 

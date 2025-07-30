@@ -114,6 +114,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#tasks" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -2725,6 +2730,94 @@ GitHub sponsorship</a>
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#scanning" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scanning
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#auto-tagging" class="md-nav__link">
+    <span class="md-ellipsis">
+      Auto Tagging
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scene-filename-parser" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scene Filename Parser
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#generated-content" class="md-nav__link">
+    <span class="md-ellipsis">
+      Generated Content
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Generated Content">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#transcodes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Transcodes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#image-gallery-thumbnails" class="md-nav__link">
+    <span class="md-ellipsis">
+      Image gallery thumbnails
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cleaning" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cleaning
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exporting-and-importing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exporting and Importing
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -2756,9 +2849,142 @@ GitHub sponsorship</a>
   
 
 
-  <h1>Tasks</h1>
-
-
+<h1 id="tasks">Tasks<a class="headerlink" href="#tasks" title="Permanent link">&para;</a></h1>
+<p>This page allows you to direct the stash server to perform a variety of tasks.</p>
+<h2 id="scanning">Scanning<a class="headerlink" href="#scanning" title="Permanent link">&para;</a></h2>
+<p>The scan function walks through the stash directories you have configured for new and moved files. </p>
+<p>Stash currently identifies files by performing a quick file hash. This means that if the file is renamed for moved elsewhere within your configured stash directories, then the scan will detect this and update its database accordingly.</p>
+<p>Stash currently ignores duplicate files. If two files contain identical content, only the first one it comes across is used.</p>
+<p>The scan task accepts the following options:</p>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Generate scene covers</td>
+<td>Generates scene covers for video files.</td>
+</tr>
+<tr>
+<td>Generate previews</td>
+<td>Generates video previews (mp4) which play when hovering over a scene.</td>
+</tr>
+<tr>
+<td>Generate animated image previews*</td>
+<td><em>Accessible in Advanced Mode</em> - Also generate animated (webp) previews, only required when Scene/Marker Wall Preview Type is set to Animated Image. When browsing they use less CPU than the video previews, but are generated in addition to them and are larger files.</td>
+</tr>
+<tr>
+<td>Generate scrubber sprites</td>
+<td>The set of images displayed below the video player for easy navigation.</td>
+</tr>
+<tr>
+<td>Generate perceptual hashes</td>
+<td>Generates perceptual hashes for scene deduplication and identification.</td>
+</tr>
+<tr>
+<td>Generate thumbnails for images</td>
+<td>Generates thumbnails for image files.</td>
+</tr>
+<tr>
+<td>Generate previews for image clips</td>
+<td>Generates a gif/looping video as thumbnail for image clips/gifs.</td>
+</tr>
+<tr>
+<td>Rescan</td>
+<td>By default, Stash will only rescan existing files if the file's modified date has been updated since its previous scan. Stash will rescan files in the path when this option is enabled, regardless of the file modification time. Only required Stash needs to recalculate video/image metadata, or to rescan gallery zips.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="auto-tagging">Auto Tagging<a class="headerlink" href="#auto-tagging" title="Permanent link">&para;</a></h2>
+<p>See the <a href="/help/AutoTagging.md">Auto Tagging</a> page.</p>
+<h2 id="scene-filename-parser">Scene Filename Parser<a class="headerlink" href="#scene-filename-parser" title="Permanent link">&para;</a></h2>
+<p>See the <a href="/help/SceneFilenameParser.md">Scene Filename Parser</a> page.</p>
+<h2 id="generated-content">Generated Content<a class="headerlink" href="#generated-content" title="Permanent link">&para;</a></h2>
+<p>The scanning function automatically generates a screenshot of each scene. The generated content provides the following:</p>
+<ul>
+<li>Video or image previews that are played when mousing over the scene card</li>
+<li>Perceptual hashes - helps match against StashDB, and feeds the duplicate finder</li>
+<li>Sprites (scene stills for parts of each scene) that are shown in the scene scrubber</li>
+<li>Marker video previews that are shown in the markers page</li>
+<li>Transcoded versions of scenes. See below</li>
+<li>Image thumbnails of galleries</li>
+</ul>
+<p>The generate task accepts the following options:</p>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Scene covers</td>
+<td>Generates scene covers for video files.</td>
+</tr>
+<tr>
+<td>Previews</td>
+<td>Generates video previews (mp4) which play when hovering over a scene.</td>
+</tr>
+<tr>
+<td>Animated image previews</td>
+<td><em>Accessible in Advanced Mode</em> - Generates animated previews (webp). Only required if the Preview Type is set to Animated Image. Requires Generate previews to be enabled.</td>
+</tr>
+<tr>
+<td>Scene Scrubber Sprites</td>
+<td>The set of images displayed below the video player for easy navigation.</td>
+</tr>
+<tr>
+<td>Markers Previews</td>
+<td>Generates 20 second video previews (mp4) which begin at the marker timecode.</td>
+</tr>
+<tr>
+<td>Marker Animated Image Previews</td>
+<td><em>Accessible in Advanced Mode</em> - Also generate animated (webp) previews, only required when Scene/Marker Wall Preview Type is set to Animated Image. When browsing they use less CPU than the video previews, but are generated in addition to them and are larger files.</td>
+</tr>
+<tr>
+<td>Marker Screenshots</td>
+<td>Generates static JPG images for markers. Only required if Preview Type is set to Static Image. Requires Marker Previews to be enabled.</td>
+</tr>
+<tr>
+<td>Transcodes</td>
+<td><em>Accessible in Advanced Mode</em> - MP4 conversions of unsupported video formats. Allows direct streaming instead of live transcoding.</td>
+</tr>
+<tr>
+<td>Perceptual hashes (for deduplication)</td>
+<td>Generates perceptual hashes for scene deduplication and identification.</td>
+</tr>
+<tr>
+<td>Generate heatmaps and speeds for interactive scenes</td>
+<td>Generates heatmaps and speeds for interactive scenes.</td>
+</tr>
+<tr>
+<td>Image Clip Previews</td>
+<td>Generates a gif/looping video as thumbnail for image clips/gifs.</td>
+</tr>
+<tr>
+<td>Overwrite existing generated files</td>
+<td>By default, where a generated file exists, it is not regenerated. When this flag is enabled, then the generated files are regenerated.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="transcodes">Transcodes<a class="headerlink" href="#transcodes" title="Permanent link">&para;</a></h3>
+<p>Web browsers support a limited number of video and audio codecs and containers. Stash will directly stream video files where the browser supports the codecs and container. Originally, stash did not support viewing scene videos where the browser did not support the codecs/container, and generating transcodes was a way of viewing these files.</p>
+<p>Stash has since implemented live transcoding, so transcodes are essentially unnecessary now. Further, transcodes use up a significant amount of disk space and are not guaranteed to be lossless.</p>
+<h3 id="image-gallery-thumbnails">Image gallery thumbnails<a class="headerlink" href="#image-gallery-thumbnails" title="Permanent link">&para;</a></h3>
+<p>These are generated when the gallery is first viewed, so generating them beforehand is not necessary.</p>
+<h2 id="cleaning">Cleaning<a class="headerlink" href="#cleaning" title="Permanent link">&para;</a></h2>
+<p>This task will walk through your configured media directories and remove any scene from the database that can no longer be found. It will also remove generated files for scenes that subsequently no longer exist.</p>
+<p>Care should be taken with this task, especially where the configured media directories may be inaccessible due to network issues.</p>
+<h2 id="exporting-and-importing">Exporting and Importing<a class="headerlink" href="#exporting-and-importing" title="Permanent link">&para;</a></h2>
+<p>The import and export tasks read and write JSON files to the configured metadata directory. Import from file will merge your database with a file.</p>
+<blockquote>
+<p><strong>⚠️ Note:</strong> The full import task wipes the current database completely before importing.</p>
+</blockquote>
+<p>See the <a href="/help/JSONSpec.md">JSON Specification</a> page for details on the exported JSON format.</p>
 
 
 
@@ -2796,6 +3022,34 @@ GitHub sponsorship</a>
 
     
     
+    
+      
+  <span class="md-source-file__fact">
+    
+      
+  <span class="md-icon" title="Contributors">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33s1.71.11 2.5.33c1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2"/></svg>
+  </span>
+  <span>GitHub</span>
+
+    
+    <nav>
+      
+        <a href="https://github.com/DogmaDragon" class="md-author" title="@DogmaDragon">
+          
+          <img src="https://avatars.githubusercontent.com/u/103123951?v=4&size=72" alt="DogmaDragon">
+        </a>
+      
+        <a href="https://github.com/web-flow" class="md-author" title="@web-flow">
+          
+          <img src="https://avatars.githubusercontent.com/u/19864447?v=4&size=72" alt="web-flow">
+        </a>
+      
+      
+      
+    </nav>
+  </span>
+
     
   </aside>
 

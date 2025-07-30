@@ -114,6 +114,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#metadata-scraping" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -2725,6 +2730,136 @@ GitHub sponsorship</a>
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#scraper-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scraper Types
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#supported-scrapers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Supported Scrapers
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#included-scrapers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Included Scrapers
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#managing-scrapers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Managing Scrapers
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Managing Scrapers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#source-urls" class="md-nav__link">
+    <span class="md-ellipsis">
+      Source URLs
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adding-scrapers-manually" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adding Scrapers manually
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-scrapers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using Scrapers
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Using Scrapers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fragment-scraper" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fragment Scraper
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#search-scraper" class="md-nav__link">
+    <span class="md-ellipsis">
+      Search Scraper
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#url-scraper" class="md-nav__link">
+    <span class="md-ellipsis">
+      URL Scraper
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tagger-view" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tagger View
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#identify-task" class="md-nav__link">
+    <span class="md-ellipsis">
+      Identify Task
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -2756,9 +2891,189 @@ GitHub sponsorship</a>
   
 
 
-  <h1>Metadata scraping</h1>
-
-
+<h1 id="metadata-scraping">Metadata Scraping<a class="headerlink" href="#metadata-scraping" title="Permanent link">&para;</a></h1>
+<p>Stash supports scraping of metadata from various external sources.</p>
+<h2 id="scraper-types">Scraper Types<a class="headerlink" href="#scraper-types" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Fragment</td>
+<td style="text-align: left;">Uses existing metadata for an Item and match it to a result from a metadata source.</td>
+</tr>
+<tr>
+<td>Search/By Name</td>
+<td style="text-align: left;">Uses a provided query string to search a metadata source for a list of matches for the user to pick from.</td>
+</tr>
+<tr>
+<td>URL</td>
+<td style="text-align: left;">Extracts metadata from a given URL.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="supported-scrapers">Supported Scrapers<a class="headerlink" href="#supported-scrapers" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th style="text-align: center;">Fragment</th>
+<th style="text-align: center;">Search</th>
+<th style="text-align: center;">URL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>gallery</td>
+<td style="text-align: center;">✔️</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">✔️</td>
+</tr>
+<tr>
+<td>image</td>
+<td style="text-align: center;">✔️</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">✔️</td>
+</tr>
+<tr>
+<td>group</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">✔️</td>
+</tr>
+<tr>
+<td>performer</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">✔️</td>
+<td style="text-align: center;">✔️</td>
+</tr>
+<tr>
+<td>scene</td>
+<td style="text-align: center;">✔️</td>
+<td style="text-align: center;">✔️</td>
+<td style="text-align: center;">✔️</td>
+</tr>
+</tbody>
+</table>
+<h2 id="included-scrapers">Included Scrapers<a class="headerlink" href="#included-scrapers" title="Permanent link">&para;</a></h2>
+<p>Stash provides the following built-in scrapers:</p>
+<table>
+<thead>
+<tr>
+<th>Scraper</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Freeones</td>
+<td><code>search</code> Performer scraper for freeones.xxx.</td>
+</tr>
+<tr>
+<td>Auto Tag</td>
+<td>Scene <code>fragment</code> scraper that matches existing performers, studio and tags using the filename.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="managing-scrapers">Managing Scrapers<a class="headerlink" href="#managing-scrapers" title="Permanent link">&para;</a></h2>
+<p>Scrapers can be installed and managed from the <code>Settings &gt; Metadata Providers</code> page. </p>
+<p>Scrapers are installed using the <code>Available Scrapers</code> section. This section allows configuring sources from which to install scrapers. The <code>Community (stable)</code> source is configured by default. This source contains scrapers for the current <em>stable</em> version of stash.</p>
+<p>These are the scraper sources maintained by the stashapp organisation:</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Source URL</th>
+<th>Recommended Local Path</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Community (stable)</td>
+<td><code>https://stashapp.github.io/CommunityScrapers/stable/index.yml</code></td>
+<td><code>stable</code></td>
+<td>For the current stable version of stash.</td>
+</tr>
+<tr>
+<td>Community (develop)</td>
+<td><code>https://stashapp.github.io/CommunityScrapers/develop/index.yml</code></td>
+<td><code>develop</code></td>
+<td>For the develop version of stash.</td>
+</tr>
+</tbody>
+</table>
+<p>Installed scrapers can be updated or uninstalled from the <code>Installed Scrapers</code> section.</p>
+<h3 id="source-urls">Source URLs<a class="headerlink" href="#source-urls" title="Permanent link">&para;</a></h3>
+<p>The source URL must return a yaml file containing all the available packages for the source. An example source yaml file looks like the following:</p>
+<div class="highlight"><pre><span></span><code>- id: &lt;package id&gt;
+  name: &lt;package name&gt;
+  version: &lt;version&gt;
+  date: &lt;date&gt;
+  requires:
+  - &lt;ids of packages required by this package (optional)&gt;
+  - ...
+  path: &lt;path to package zip file&gt;
+  sha256: &lt;sha256 of zip&gt;
+  metadata:
+    &lt;optional key/value pairs for extra information&gt;
+- ...
+</code></pre></div>
+<p>Path can be a relative path to the zip file or an external URL.</p>
+<h2 id="adding-scrapers-manually">Adding Scrapers manually<a class="headerlink" href="#adding-scrapers-manually" title="Permanent link">&para;</a></h2>
+<p>By default, Stash looks for scraper configurations in the <code>scrapers</code> sub-directory of the directory where the stash <code>config.yml</code> is read. This will either be the <code>$HOME/.stash</code> directory or the current working directory.</p>
+<p>Scrapers are added manually by placing yaml configuration files (format: <code>scrapername.yml</code>) in the <code>scrapers</code> directory.</p>
+<blockquote>
+<p><strong>⚠️ Note:</strong> Some scrapers may require more than just the yaml file, consult the individual scraper documentation</p>
+</blockquote>
+<p>After the yaml files are added, removed or edited while stash is running, they can be reloaded going to <code>Settings &gt; Metadata Providers &gt; Scrapers</code> and clicking <code>Reload Scrapers</code>.</p>
+<h2 id="using-scrapers">Using Scrapers<a class="headerlink" href="#using-scrapers" title="Permanent link">&para;</a></h2>
+<h4 id="fragment-scraper">Fragment Scraper<a class="headerlink" href="#fragment-scraper" title="Permanent link">&para;</a></h4>
+<p>Click on the <code>Scrape With...</code> button in the <code>edit</code> tab of an item, then select the scraper you wish to use.</p>
+<h4 id="search-scraper">Search Scraper<a class="headerlink" href="#search-scraper" title="Permanent link">&para;</a></h4>
+<p>Click on the 🔍 button in the <code>edit</code> tab of an item. You will be presented with a search dialog with a pre-populated query to search for, after searching you will be presented with a list of results to pick from</p>
+<h4 id="url-scraper">URL Scraper<a class="headerlink" href="#url-scraper" title="Permanent link">&para;</a></h4>
+<p>Enter the URL in the <code>edit</code> tab of an Item. If a scraper is installed that supports that url, then a button will appear to scrape the metadata.</p>
+<h2 id="tagger-view">Tagger View<a class="headerlink" href="#tagger-view" title="Permanent link">&para;</a></h2>
+<p>The Tagger view is accessed from the scenes page. It allows the user to run scrapers on all items on the current page. The Tagger presents the user with potential matches for an item from a selected stash-box instance or metadata source if supported. The user needs to select the correct metadata information to save. </p>
+<p>When used in combination with stash-box, the user can optionally submit scene fingerprints to contribute to a stash-box instance. A scene fingerprint consists of any generated hashes (<code>phash</code>, <code>oshash</code>, <code>md5</code>) and the scene duration. Fingerprint submissions are associated with your stash-box account. Submitting fingerprints assists others in matching their files, because stash-box returns a count of matching user submitted fingerprints with every potential match.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th style="text-align: center;">Has Tagger</th>
+<th style="text-align: center;">Source Selection</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>gallery</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td>group</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td>performer</td>
+<td style="text-align: center;">✔️</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td>scene</td>
+<td style="text-align: center;">✔️</td>
+<td style="text-align: center;">✔️</td>
+</tr>
+</tbody>
+</table>
+<h2 id="identify-task">Identify Task<a class="headerlink" href="#identify-task" title="Permanent link">&para;</a></h2>
+<p>This task iterates through your Scenes and attempts to identify the scene using a selection of scraping sources. This task can be found under <code>Settings -&gt; Tasks -&gt; "Identify..." (Button)</code>. For more information see the <a href="/help/Identify.md">Tasks &gt; Identify</a> page.</p>
 
 
 
